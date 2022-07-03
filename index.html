@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nafie develops the best quality website that serves for the long-term. Well-documented, clean, easy and elegant interface helps any non-technical clients.">
+    <meta name="keywords" content="portfolio, agency, business, clean, company, corporate, creative, gallery, rtl, modern, photography, vue, vuejs, responsive, sass">
+
+    <!-- title of the browser tab -->
+    <title>Inside Pro</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="assets/favicon.ico">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&family=Saira+Stencil+One&text=InsidePro&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/regular.min.css">
+
+
+    <!-- css libraries file -->
+    <link rel="stylesheet" href="styles/libraries.min.css">
+
+    <!-- bootstrap css file -->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+
+    <!-- main style file -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/all.min.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="app-inne" ref="appRef"
+        :class="[savedTheme, {'enable-focus-style': isAnyFocus}]"
+        @click="isAnyFocus = false"
+        @keyup.tab="isAnyFocus = true">
+
+        <!--<div class="circle-cursor circle-cursor-outer" ref="circleCursorOuter"></div>
+        <div class="circle-cursor circle-cursor-inner" ref="circleCursorInner"></div>-->
+
+        <!-- start preloader-->
+        <div class="preloader" ref="preloader">
+          <div class="preloader-content">
+            <div class="logo">
+              <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 199">
+                <path d="M0.720001 8.91999V0.855993H58.32L169.488 190.648V199H112.176L0.720001 8.91999ZM114.768 73.144V0.855993H169.488V166.744L114.768 73.144ZM0.720001 32.824L55.44 126.424V199H0.720001V32.824Z" />
+              </svg>-->
+              <img src="assets/images/logo_inde.svg" alt="" srcset="">
+            </div>
+            <!--<div class="loading-bar">
+              <span class="loading-bar-progress"></span>
+            </div>-->
+          </div>
+        </div>
+        <!-- end preloader-->
+
+        <!-- start of header -->
+        <header class="hide-in-preloading" :class="{
+          'big-header': isHeaderBig,
+          'small-header': !isHeaderBig,
+          'header-hidden': isHeaderHidden
+        }">
+          <div class="container">
+            <div class="logo" title="InsidePro">
+              <h1><a href="index.html">
+                <img src="assets/images/logo.png" alt="" srcset="" style="width: 300px;">
+              </a></h1>
+            </div>
+            <!--<ul class="options-icons">
+              <li class="theme-switcher">
+                <button :class="savedTheme" title="Change Mode" @click="changeAppTheme"></button>
+              </li>
+            </ul>-->
+          </div>
+        </header>
+        <!-- end of header -->
+
+        <!-- start of hero section -->
+        <div id="hero"
+          class="contact-section section"
+          data-paneffect="true"
+          ref="heroSection">
+          <div class="container">
+            <div class="section-content row">
+
+              <!-- text box -->
+              <div class="contact-text col-lg-6">
+                <div class="btext">
+                  <img src="assets/images/groupe_3.png" alt="" srcset="" style="position: relative;top: -14rem;left: 27rem;">
+                  <div class="bienvenu">
+                    <h3 class="textcol" style="font-size: 3.3rem;">
+                      Bienvenue
+                    </h3>
+                    <p class="textcol" style="font-size: 1.5rem;">
+                      sur votre espace collaboratif
+                    </p>
+                    <img src="assets/images/image_team.svg" alt="" style="position: relative; left: 50px; width: 35rem;top: -5rem;">
+                </div>
+                <img src="assets/images/groupe.png" alt="" srcset="" style="transform: rotate(180deg); position: relative; top: -42rem; right: 5rem;width: 15rem;">
+                </div>
+              </div>
+
+              <!-- contact form -->
+              <div class="col-lg-6">
+                <img src="assets/images/Rectangle.svg" alt="" srcset=""style="position: relative;left: 20rem;top: -25rem;">
+                <form ref="contactForm"
+                  class="contact-form form-styled"
+                  action="contact_form.php"
+                  data-success-msg="Message sent successfully!"
+                  data-err-msg="Oops! something went wrong, please try again."
+                  style="transform: translate3d(0px, 0px, 0px) scale(0.8688, 0.868758); /*! opacity: 0.5625; */ visibility: inherit;position: relative;left: 0rem;top: -40rem;padding:100px 25px;">
+                  <div class="group">
+                    <h3 class="textcol" style="font-size: 3.3rem;">Hello</h3>
+                    <p class="textcol font">monsieur <span class="textcol fontbold">Paul André KOFFI</span></p>
+                    <P class="desc">Pour votre première connexion veuillez créer votre mot de passe <br/>
+                      pour accédez au quotidien à votre espace collaboratif
+                    </P>
+                  </div>
+                  <div class="group">
+                    <label>Creez votre mot de passe personnel</label>
+                    <div class="control has-prefix-icon">
+                      <input type="password"
+                      placeholder="Entrez votre nouveau mot de passe"
+                        name="password"
+                        required>
+                      <!-- validation errors messages -->
+                      <div class="errors-msgs">
+                        <input class="required" type="hidden" value="Name is required">
+                        <input class="minLength" type="hidden" value="Name must be at least 3 characters">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="group">
+                    <label>Confirmez le mot de passe personnel</label>
+                    <div class="control has-prefix-icon">
+                      <input class="ltr-dir"
+                        type="password"
+                        placeholder="Confirmation du mot de passe"
+                        name="conpassword"
+                        required>
+                      <!-- validation errors messages -->
+                      <div class="errors-msgs">
+                        <input class="required" type="hidden" value="Email is required">
+                        <input class="invalid" type="hidden" value="Please enter a valid email address">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="group">
+                    <div class="control has-prefix-icon">
+                      <input class="ltr-dir"
+                        type="checkbox"
+                        name="resterconnecter"> Gardez-moi connecté
+                      <!-- validation errors messages -->
+                      <div class="errors-msgs">
+                        <input class="required" type="hidden" value="Email is required">
+                        <input class="invalid" type="hidden" value="Please enter a valid email address">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="group">
+                    <div class="control">
+                      <button class="submit-btn btn btn-col" type="button" @click="contactFormValidation"><i style="margin-right: 5px;" class="fa-regular fa-circle-check"></i>Validez</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- end of hero section -->
+      </div>
+    </div>
+
+    <!-- js plugins file -->
+    <script src="scripts/plugins.min.js"></script>
+
+    <!-- main script file -->
+    <script src="scripts/main.min.js"></script>
+  </body>
+</html>
